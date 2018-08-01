@@ -728,9 +728,10 @@ public class InstrumentDAOMySQLImpl implements IInstrumentDAO {
 		int valueId = -1;
 		try {
 			st = conn.prepareStatement("SELECT value_id FROM " + TABLE_FIELD_VALUES_NAME 
-				+ " WHERE value_name_en = ? AND subgroup_id = ?;");
+				+ " WHERE value_name_en = ? AND field_id = ? AND subgroup_id = ?;");
 			st.setString(1, valueNameEn);
-			st.setInt(2, subgroupId);
+			st.setInt(2, fieldId);
+			st.setInt(3, subgroupId);
 			res = st.executeQuery();
 			if (res.next()) {
 				valueId = res.getInt(1);
