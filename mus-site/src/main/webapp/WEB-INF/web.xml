@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<servlet>
+		<servlet-name>Controller Servlet</servlet-name>
+		<servlet-class>com.hurynovich.mus_site.controller.Controller</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Controller Servlet</servlet-name>
+		<url-pattern>/controller</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<filter-name>Encoding Filter</filter-name>
+		<filter-class>com.hurynovich.mus_site.controller.filter.EncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Encoding Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>Authorization Filter</filter-name>
+		<filter-class>com.hurynovich.mus_site.controller.filter.AuthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Authorization Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>Query String Catcher Filter</filter-name>
+		<filter-class>com.hurynovich.mus_site.controller.filter.QueryStringCatcher</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Query String Catcher Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<resource-ref>
+      	<description>DB Connection</description>
+      	<res-ref-name>jdbc/musSiteDB</res-ref-name>
+      	<res-type>javax.sql.DataSource</res-type>
+      	<res-auth>Container</res-auth>
+  	</resource-ref>
+</web-app>

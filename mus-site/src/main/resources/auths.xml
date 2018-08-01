@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:auths xmlns:tns = "http://www.hurynovich.com/authsSchema" 
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation = "http://www.hurynovich.com/authsSchema authsSchema.xsd ">
+	<auth>
+		<url>instruments_rate</url>
+		<role>USER</role>
+		<role>MANAGER</role>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>reviews_new</url>
+		<role>MANAGER</role>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>reviews_edit</url>
+		<role>MANAGER</role>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>reviews_delete</url>
+		<role>MANAGER</role>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>instruments_new</url>
+		<role>MANAGER</role>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>instruments_delete</url>
+		<role>MANAGER</role>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>instruments_new_group</url>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>instruments_new_subgroup</url>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>instruments_delete_group</url>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>instruments_delete_subgroup</url>
+		<role>ADMIN</role>
+	</auth>
+	<auth>
+		<url>profile_change_role</url>
+		<role>ADMIN</role>
+	</auth>
+</tns:auths>

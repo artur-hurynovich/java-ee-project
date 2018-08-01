@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE xml>
+<Configuration>
+	<Appenders>
+		<RollingFile name = "File">
+			<Append>true</Append>
+			<FileName>${sys:projectDir}/logs/mus_site.log</FileName>
+			<FilePattern>mus_site_%d{yyyy-MM-dd}.log.zip</FilePattern>
+			<PatternLayout>
+				<Pattern>
+					%d{yyyy-MM-dd HH:mm:ss} %-5p 
+				</Pattern> 
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy  interval = "2" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level = "error">
+			<Appender-ref ref = "File" />
+		</Root>
+	</Loggers>
+</Configuration>

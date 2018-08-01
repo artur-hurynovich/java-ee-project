@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns = "http://www.w3.org/2001/XMLSchema" 
+	targetNamespace = "http://www.hurynovich.com/commandsSchema" 
+	xmlns:tns = "http://www.hurynovich.com/commandsSchema">
+	<complexType name = "Command">
+		<sequence>
+			<element name = "commandName" type = "string" />
+    		<element name = "commandClass" type = "string" />
+		</sequence>
+	</complexType>
+    <element name = "commands">
+    	<complexType>
+    		<sequence>
+    			<element name = "command" type = "tns:Command" minOccurs = "1" maxOccurs = "unbounded" />
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

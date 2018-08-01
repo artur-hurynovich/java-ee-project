@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns = "http://www.w3.org/2001/XMLSchema" 
+	targetNamespace = "http://www.hurynovich.com/authsSchema" 
+	xmlns:tns = "http://www.hurynovich.com/authsSchema">
+	<complexType name = "Auth">
+		<sequence>
+			<element name = "url" type = "string"  />
+			<element name = "role" type = "tns:roleType" minOccurs = "1" maxOccurs = "3" />
+		</sequence>
+	</complexType>
+	<simpleType name = "roleType">
+		<restriction base = "string">
+			<enumeration value = "USER" />
+			<enumeration value = "MANAGER" />
+			<enumeration value = "ADMIN" />
+		</restriction>
+	</simpleType>
+    <element name = "auths">
+    	<complexType>
+    		<sequence>
+    			<element name = "auth" type = "tns:Auth" minOccurs = "1" maxOccurs = "unbounded" />
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

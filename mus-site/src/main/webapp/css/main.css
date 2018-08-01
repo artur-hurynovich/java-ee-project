@@ -1,0 +1,37 @@
+.navbar-custom {
+	color: #ffffff;
+	background-color: #000000;
+}
+
+.nav-item>a {
+	color: #ffffff;
+}
+
+.nav-item>a:hover {
+	color: #7c7c7c;
+}
+
+.btn {
+	color: #ffffff;
+	background-color: #000000;
+}
+
+html, body, .wrapper {
+	height: 100%;
+}
+
+.wrapper {
+	display: flex;
+}
+
+.left {
+	flex-basis: 30%;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.right {
+	flex-basis: 70%;
+	margin-right: 10px;
+	margin-top: 10px;
+}

@@ -1,0 +1,8 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE xml>
+<Context>
+  	<Resource name = "jdbc/musSiteDB" auth = "Container" type = "javax.sql.DataSource"
+		maxTotal = "3" maxWaitMillis = "5000"
+        username = "root" password = "IUm9jcB4Fln87fT" driverClassName = "com.mysql.cj.jdbc.Driver"
+        url = "jdbc:mysql://localhost:3306/test_db?useSSL=false"/>
+</Context>
