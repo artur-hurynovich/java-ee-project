@@ -8,6 +8,7 @@ Features:
 - I18n;
 - CRUD-operations (create, read, update, delete for reviews; create, read, delete for instruments);
 - Uploading images for instruments;
+- Exceptions logging.
 
 Java technologies:
 - Java SE8;
@@ -15,6 +16,7 @@ Java technologies:
 - JavaMail;
 - JDBC;
 - JAXP (SAX- and DOM-parsers);
+- log4j 2;
 
 Front-end technologies:
 - HTML, CSS;
