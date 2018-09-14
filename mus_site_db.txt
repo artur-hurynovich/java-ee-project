@@ -1,0 +1,111 @@
+CREATE DATABASE mus_site_db;
+USE mus_site_db;
+
+CREATE TABLE users(
+user_id INT AUTO_INCREMENT NOT NULL,
+user_name VARCHAR (35) NOT NULL,
+user_email VARCHAR (45) NOT NULL,
+user_password VARCHAR (25) NOT NULL,
+user_role ENUM ('USER', 'MANAGER', 'ADMIN') NOT NULL,
+user_phone VARCHAR (20) NOT NULL,
+PRIMARY KEY (user_id));
+
+INSERT INTO users (user_name, user_email, user_password, user_role, user_phone) VALUES ('Artur Hurynovich',
+'admin@gmail.com',
+'admin',
+'ADMIN',
+'+375(29)6460591');
+
+CREATE TABLE ru_reviews(
+review_id INT AUTO_INCREMENT NOT NULL,
+review_title VARCHAR (150) NOT NULL,
+review_text TEXT NOT NULL,
+review_date DATE NOT NULL,
+user_id INT NOT NULL,
+PRIMARY KEY (review_id));
+
+CREATE TABLE ru_hashtags(
+hashtag_id INT AUTO_INCREMENT NOT NULL,
+hashtag_name VARCHAR (150) NOT NULL,
+PRIMARY KEY (hashtag_id));
+
+CREATE TABLE ru_reviews_hashtags(
+review_id INT NOT NULL,
+hashtag_id INT NOT NULL,
+PRIMARY KEY (review_id, hashtag_id),
+FOREIGN KEY (review_id) REFERENCES ru_reviews(review_id) ON DELETE CASCADE,
+FOREIGN KEY (hashtag_id) REFERENCES ru_hashtags(hashtag_id));
+
+CREATE TABLE en_reviews(
+review_id INT AUTO_INCREMENT NOT NULL,
+review_title VARCHAR (150) NOT NULL,
+review_text TEXT NOT NULL,
+review_date DATE NOT NULL,
+user_id INT NOT NULL,
+PRIMARY KEY (review_id));
+
+CREATE TABLE en_hashtags(
+hashtag_id INT AUTO_INCREMENT NOT NULL,
+hashtag_name VARCHAR (150) NOT NULL,
+PRIMARY KEY (hashtag_id));
+
+CREATE TABLE en_reviews_hashtags(
+review_id INT NOT NULL,
+hashtag_id INT NOT NULL,
+PRIMARY KEY (review_id, hashtag_id),
+FOREIGN KEY (review_id) REFERENCES en_reviews(review_id) ON DELETE CASCADE,
+FOREIGN KEY (hashtag_id) REFERENCES en_hashtags(hashtag_id));
+
+CREATE TABLE groups(
+group_id INT AUTO_INCREMENT NOT NULL,
+group_name_en VARCHAR (150) NOT NULL,
+group_name_ru VARCHAR (150) NOT NULL,
+PRIMARY KEY (group_id));
+
+CREATE TABLE subgroups(
+subgroup_id INT AUTO_INCREMENT NOT NULL,
+subgroup_name_en VARCHAR (150) NOT NULL,
+subgroup_name_ru VARCHAR (150) NOT NULL,
+group_id INT NOT NULL,
+PRIMARY KEY (subgroup_id));
+
+CREATE TABLE fields(
+field_id INT AUTO_INCREMENT NOT NULL,
+field_name_en VARCHAR (150) NOT NULL,
+field_name_ru VARCHAR (150) NOT NULL,
+PRIMARY KEY (field_id));
+
+CREATE TABLE subgroups_fields(
+subgroup_id INT NOT NULL,
+field_id INT NOT NULL,
+PRIMARY KEY (subgroup_id, field_id));
+
+CREATE TABLE field_values(
+value_id INT AUTO_INCREMENT NOT NULL,
+value_name_en VARCHAR (150) NOT NULL,
+value_name_ru VARCHAR (150) NOT NULL,
+field_id INT NOT NULL,
+subgroup_id INT NOT NULL,
+PRIMARY KEY (value_id, field_id));
+
+CREATE TABLE instruments(
+instrument_id INT NOT NULL,
+field_id INT NOT NULL,
+value_id INT NOT NULL);
+
+CREATE TABLE subgroups_instruments(
+instrument_id INT AUTO_INCREMENT NOT NULL,
+subgroup_id INT NOT NULL,
+PRIMARY KEY (instrument_id, subgroup_id));
+
+CREATE TABLE ratings(
+instrument_id INT NOT NULL,
+user_id INT NOT NULL,
+rating_value ENUM ('1', '2', '3', '4', '5') NOT NULL,
+PRIMARY KEY (instrument_id, user_id, rating_value));
+
+CREATE TABLE photos(
+photo_id INT NOT NULL AUTO_INCREMENT,
+instrument_id INT NOT NULL,
+photo_source VARCHAR(50) NOT NULL,
+PRIMARY KEY (photo_id, instrument_id, photo_source));
